@@ -1,16 +1,19 @@
+#Importação
 import mysql.connector
 import mysql.connector.errorcode
 from time import sleep
 import psutil
 import botSlack
 
+#
 def maquina(flag):
         parar = flag
         contador = 0
+        #Conexão com o banco de dados
         conexao = mysql.connector.connect(
             host= "localhost",
-            user= "stockSafe",
-            password= "urubu100",
+            user= "aluno",
+            password= "sptech",
             port= 3306,
             database="StockSafe"
         )

@@ -4,8 +4,8 @@ import mysql.connector.errorcode
 
 conexao = mysql.connector.connect(
     host= "localhost",
-    user= "stockSafe",
-    password= "urubu100",
+    user= "aluno",
+    password= "sptech",
     port= 3306,
     database="StockSafe"
 );
