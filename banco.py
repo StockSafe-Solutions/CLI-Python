@@ -8,9 +8,9 @@ conexao = mysql.connector.connect(
     password= "urubu100",
     port= 3306,
     database="StockSafe"
-);
+)
 
-comando = conexao.cursor();
+comando = conexao.cursor()
 
 #Função para inserir a memória
 def inserirMemoria(finalMem):
