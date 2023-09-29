@@ -1,7 +1,18 @@
+import mysql.connector
+import mysql.connector.errorcode
 import time as t # tipo um setInterval
 import psutil as ps
 import pandas as pd
 import os # compatibilidade com os sistemas
+
+conexao = mysql.connector.connect(
+            host= "localhost",
+            user= "aluno",
+            password= "sptech",
+            port= 3306,
+            database="portoes_do_inferno"
+)
+comando = conexao.cursor()
 
 while True:
     for i in range(1):
@@ -37,3 +48,25 @@ while True:
         print(f"{'Monitoramento da memória RAM'}\n{'='*50}\n{dfRam}\n{'='*50}\n") # printa os dados no console
         t.sleep(5)
         os.system('cls' if os.name == 'nt' else 'clear')#Limpa dados do console
+
+           #Inserção de valores da CPU
+        try:
+                comando.execute(f"""INSERT INTO registro VALUES (NULL,NOW(), {pacotesRecebidos}, 2000, 3),
+                                                                (NULL,NOW(), {pacotesErros}, 2000, 3),
+                                                                (NULL,NOW(),{pacotesDescartados}, 2000, 3)
+                                                                ;""")
+                conexao.commit()
+                print("Foi")
+        except mysql.connector.Error as Erro:
+                    print('Erro ao inserir os dados ', Erro)
+        try:
+                comando.execute(f"""INSERT INTO registro VALUES (NULL, NOW(), {memoriaRamTotal}, 2000, 1),
+                                                                (NULL, NOW(), {memoriaRamDisponivel}, 2001, 1),
+                                                                (NULL, NOW(), {memoriaRamPercentual}, 2001, 1),
+                                                                (NULL, NOW(), {memoriaRamAtiva}, 2001, 1),
+                                                                (NULL, NOW(), {memoriaRamPartilhada}, 2001, 1)
+                                                                ;""")
+                conexao.commit()
+                print("Foi")
+        except mysql.connector.Error as Erro:
+                print('Erro ao inserir os dados1 ', Erro)
