@@ -24,11 +24,11 @@ while True:
         pctPerda = pacotesRecebidos*(pacotesErros+pacotesDescartados)/100
 
         #Coletar dados da memória RAM.
-        memoriaRamTotal =  1 #round((ps.virtual_memory()[0])*10**-9,2)
-        memoriaRamDisponivel = 1 #round((ps.virtual_memory()[1])*10**-9,2)
-        memoriaRamPercentual = 1 #round((ps.virtual_memory()[2])*10**-9,2)
-        memoriaRamAtiva = 1 #round((ps.virtual_memory()[5])*10**-9,2)
-        memoriaRamPartilhada = 1 #round((ps.virtual_memory()[9])*10**-9,2)
+        memoriaRamTotal =  round((ps.virtual_memory()[0])*10**-9,2)
+        memoriaRamDisponivel = round((ps.virtual_memory()[1])*10**-9,2)
+        memoriaRamPercentual = round((ps.virtual_memory()[2]))
+        memoriaRamAtiva = round((ps.virtual_memory()[5])*10**-9,2)
+        memoriaRamPartilhada = round((ps.virtual_memory()[9])*10**-9,2)
 
         
         #Cria dataframe para visualização
@@ -49,7 +49,8 @@ while True:
         t.sleep(5)
         os.system('cls' if os.name == 'nt' else 'clear')#Limpa dados do console
 
-           #Inserção de valores da CPU
+  #Inserção de valores da CPU
+
         try:
                 comando.execute(f"""INSERT INTO registro VALUES (NULL,NOW(), {pacotesRecebidos}, 2004, 3),
                                                                 (NULL,NOW(), {pacotesErros}, 2004, 3),
@@ -70,3 +71,4 @@ while True:
                 print("Foi memoria")
         except mysql.connector.Error as Erro:
                 print('Erro ao inserir os dados1 ', Erro)
+            
