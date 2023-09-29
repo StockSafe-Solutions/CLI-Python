@@ -24,11 +24,11 @@ while True:
         pctPerda = pacotesRecebidos*(pacotesErros+pacotesDescartados)/100
 
         #Coletar dados da memória RAM.
-        memoriaRamTotal = round((ps.virtual_memory()[0])*10**-9,2)
-        memoriaRamDisponivel = round((ps.virtual_memory()[1])*10**-9,2)
-        memoriaRamPercentual = round((ps.virtual_memory()[2])*10**-9,2)
-        memoriaRamAtiva = round((ps.virtual_memory()[5])*10**-9,2)
-        memoriaRamPartilhada = round((ps.virtual_memory()[9])*10**-9,2)
+        memoriaRamTotal =  1 #round((ps.virtual_memory()[0])*10**-9,2)
+        memoriaRamDisponivel = 1 #round((ps.virtual_memory()[1])*10**-9,2)
+        memoriaRamPercentual = 1 #round((ps.virtual_memory()[2])*10**-9,2)
+        memoriaRamAtiva = 1 #round((ps.virtual_memory()[5])*10**-9,2)
+        memoriaRamPartilhada = 1 #round((ps.virtual_memory()[9])*10**-9,2)
 
         
         #Cria dataframe para visualização
@@ -51,12 +51,12 @@ while True:
 
            #Inserção de valores da CPU
         try:
-                comando.execute(f"""INSERT INTO registro VALUES (NULL,NOW(), {pacotesRecebidos}, 2000, 3),
-                                                                (NULL,NOW(), {pacotesErros}, 2000, 3),
-                                                                (NULL,NOW(),{pacotesDescartados}, 2000, 3)
+                comando.execute(f"""INSERT INTO registro VALUES (NULL,NOW(), {pacotesRecebidos}, 2004, 3),
+                                                                (NULL,NOW(), {pacotesErros}, 2004, 3),
+                                                                (NULL,NOW(),{pacotesDescartados}, 2004, 3)
                                                                 ;""")
                 conexao.commit()
-                print("Foi")
+                print("Foi [acotes]")
         except mysql.connector.Error as Erro:
                     print('Erro ao inserir os dados ', Erro)
         try:
@@ -67,6 +67,6 @@ while True:
                                                                 (NULL, NOW(), {memoriaRamPartilhada}, 2001, 1)
                                                                 ;""")
                 conexao.commit()
-                print("Foi")
+                print("Foi memoria")
         except mysql.connector.Error as Erro:
                 print('Erro ao inserir os dados1 ', Erro)
