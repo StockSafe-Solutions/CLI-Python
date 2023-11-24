@@ -9,7 +9,7 @@ def maquina(flag):
         contador = 0
         conexao = mysql.connector.connect(
             host= "localhost",
-            user= "stockSafe",
+            user= "StockSafe",
             password= "urubu100",
             port= 3306,
             database="StockSafe"
@@ -41,23 +41,17 @@ def maquina(flag):
 
             #Inserção de valores da CPU
             try:
-                comando.execute(f"""INSERT INTO registro VALUES (NULL,NOW(), {freqCPU - 0.1}, 2000, 3),
-                                                                (NULL,NOW(), {freqCPU2 - 0.1}, 2001, 3);""")
+                comando.execute(f"""INSERT INTO tb_registro (fk_servidor, fk_cat, data_hora, valor) VALUES (2000, 2, 2023-10-23 14:00:00, {freqCPU - 0.1}),
+                                                                                                           (2001, 2, 2023-10-23 14:00:00, {freqCPU2 - 0.1});""")
                 conexao.commit()
             except mysql.connector.Error as Erro:
                     print('Erro ao inserir os dados ', Erro)
             try:
-                comando.execute(f"""INSERT INTO registro VALUES (NULL, NOW(), {mem[2]}, 2000, 1),
-                                                                (NULL, NOW(), {mem2}, 2001, 1)""")
+                comando.execute(f"""INSERT INTO tb_registro (fk_servidor, fk_cat, data_hora, valor) VALUES (2000, 3, 2023-10-23 14:00:00, {mem[2]}),
+                                                                                                           (2001, 3, 2023-10-23 14:00:00, {mem2})""")
                 conexao.commit()
             except mysql.connector.Error as Erro:
                 print('Erro ao inserir os dados1 ', Erro)
-            try:
-                comando.execute(f"""INSERT INTO registro values(NULL,NOW(),{usoDisco[3]},2000,2),
-                                                                (NULL,NOW(),{usoDisco[3]},2001,2)""")
-                conexao.commit()
-            except mysql.connector.Error as erro:
-                  print("Erro ao inserir dados", erro)
             if parar:
                 break
      

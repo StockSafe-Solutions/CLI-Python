@@ -15,26 +15,17 @@ comando = conexao.cursor()
 #Função para inserir a memória
 def inserirMemoria(finalMem):
     try:
-        comando.execute(f"INSERT INTO registro VALUES (NULL, NOW(), {finalMem}, 2000, 1);")
+        comando.execute(f"INSERT INTO tb_registro (fk_servidor, fk_cat, data_hora, uso_ram) VALUES (2000, 3, 2023-10-23 12:00:00, {finalMem});")
         conexao.commit()
     except mysql.connector.Error as Erro:
         print('Erro ao inserir os dados ', Erro)
-#função para inserir o disco
-def inserirDisco(finalDisk):
-    try:
-        comando.execute(f"INSERT INTO registro VALUES (NULL, NOW(), {finalDisk}, 2000, 2);")
-        conexao.commit()
-    except mysql.connector.Error as Erro:
-        print('Erro ao inserir os dados ', Erro)
+
 #Função para inserir a CPU
 def inserirCPU(finalCPU):
     try:
-        comando.execute(f"INSERT INTO registro VALUES (NULL, NOW(), {finalCPU}, 2000, 3);")
+        comando.execute(f"INSERT INTO tb_registro (fk_servidor, fk_cat, data_hora, valor) VALUES (2000, 2, 2023-10-23 12:00:00, {finalCPU});")
         conexao.commit()
     except mysql.connector.Error as Erro:
         print('Erro ao inserir os dados ', Erro)    
 
 
-# comando.execute("SELECT * FROM registro");
-# resultado = comando.fetchall()
-# print(resultado);
