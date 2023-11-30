@@ -26,13 +26,13 @@ class Conexao:
           return None
       return conexao
 
-    def conexaoSqlServer(server, database, user,password):
+    def conexaoSqlServer(host, database, user,password):
       try:
           conn = pymssql.connect(
-              server=self.host,
-              database=self.database,
-              user=self.user,
-              password=self.password,
+              server= host,
+              database=database,
+              user=user,
+              password=password,
           )
           print("A conexão SQL Server realizada com sucesso!")
           return conn
