@@ -1,0 +1,32 @@
+{
+	"sqltools.connections": [
+		{
+			"mssqlOptions": {
+				"appName": "SQLTools",
+				"useUTC": true,
+				"encrypt": true
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 1433,
+			"driver": "MSSQL",
+			"name": "sptech",
+			"database": "StockSafe",
+			"username": "DESKTOP-30PP0Q3\\Stephany"
+		},
+		{
+			"mssqlOptions": {
+				"appName": "SQLTools",
+				"useUTC": true,
+				"encrypt": true
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 1433,
+			"driver": "MSSQL",
+			"name": "Banco",
+			"database": "StockSafe",
+			"username": "sptech"
+		}
+	]
+}
