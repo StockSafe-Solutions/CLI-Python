@@ -71,7 +71,7 @@ while isLogado is False:
                 listarProcessos()
             elif int(escolha) == 3:
                 dadosRam(idServer) 
-            elif int(escolha) == 4:
+            elif int(escolha) == 0:
                 print("Saindo...")
             else:
                 print("Escolha inválida")
