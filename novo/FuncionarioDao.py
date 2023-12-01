@@ -11,9 +11,6 @@ cursor = conexao.conexao.cursor()
 def listar():
     cursor.execute("SELECT id_funcionario, nome, email FROM tb_funcionario;")
     results = cursor.fetchall()
-    # Imprima os resultados
-    for row in results:
-        print(row)
     return results
 
 
@@ -22,9 +19,5 @@ def getFuncionarioPorLogin(email, senha):
         f"SELECT * FROM tb_funcionario WHERE email = %s AND senha = %s", (email, senha)
     )
     results = cursor.fetchall()
-    # Imprima os resultados
-    for row in results:
-        print(row)
-
     return results
 
