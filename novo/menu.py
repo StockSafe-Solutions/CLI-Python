@@ -2,7 +2,6 @@ import FuncionarioDao
 import ServidorDao
 import Coleta
 
-
 CodigoServidor = ""
 idServer = ""
 Email = ""
@@ -71,6 +70,7 @@ while isLogado is False:
                 dadosRam(idServer) 
             elif int(escolha) == 0:
                 print("Saindo...")
+                break
             else:
                 print("Escolha inválida")
             resposta = input("Deseja continuar? [S/n]")
