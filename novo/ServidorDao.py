@@ -15,6 +15,7 @@ def autenticarServidor(codigo):
     results = cursor.fetchall()
     for row in results:
         print(row)
+    return results
 
 
 def selecionarServidor(codigoFuncionario, codidoServidor):
@@ -22,3 +23,4 @@ def selecionarServidor(codigoFuncionario, codidoServidor):
     results = cursor.fetchall()
     for row in results:
         print(row)
+    return results

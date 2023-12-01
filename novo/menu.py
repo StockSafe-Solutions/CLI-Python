@@ -1,10 +1,12 @@
 import FuncionarioDao
+import ServidorDao
 import Coleta
 
-CodigoSerrvidor = ""
+CodigoServidor = ""
 Email = ""
 senha = ""
 isLogado = False
+servidor = False
 listaFuncionario = []
 
 
@@ -25,6 +27,14 @@ def exibirMenu():
 
 
 while isLogado is False:
+    print("Autenticar máquina")
+    while servidor is False:
+        CodigoServidor = input("Digite o código: ")
+        cod = ServidorDao.autenticarServidor(CodigoServidor)
+        if len(cod) > 0:
+          servidor = True
+        else:
+          print("Código inválido")
     print("Faça seu login")
     Email = input("Digite seu email: ")
     senha = input("Digite sua senha: ")
