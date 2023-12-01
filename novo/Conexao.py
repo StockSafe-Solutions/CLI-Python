@@ -21,7 +21,6 @@ class ConexaoBancoDeDados:
                 port=self.port,
                 database=self.database,
             )
-            print("A conexão MYSQL realizada com sucesso!")
         except mysql.connector.Error as err:
             print("Erro na conexão no MYSQL", err.msg)
             return None

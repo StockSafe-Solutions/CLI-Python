@@ -10,6 +10,7 @@ senha = ""
 isLogado = False
 servidor = False
 listaFuncionario = []
+resposta = ""
 
 
 def exibirMenu():
@@ -59,19 +60,24 @@ while isLogado is False:
     funcionario = FuncionarioDao.getFuncionarioPorLogin(Email, senha)
     if len(funcionario):
         isLogado = True
-        exibirMenu()
-        escolha = input("Selecione uma opção: ")
-        print(escolha)
+        while True:
+            exibirMenu()
+            escolha = input("Selecione uma opção: ")
+            print(escolha)
 
-        if int(escolha) == 1:
-            exibirDados(idServer)
-        elif int(escolha) == 2:
-            listarProcessos()
-        elif int(escolha) == 3:
-            dadosRam(idServer) 
-        elif int(escolha) == 4:
-            print("Saindo")
-        else:
-            print("Escolha inválida")
+            if int(escolha) == 1:
+                exibirDados(idServer)
+            elif int(escolha) == 2:
+                listarProcessos()
+            elif int(escolha) == 3:
+                dadosRam(idServer) 
+            elif int(escolha) == 4:
+                print("Saindo...")
+            else:
+                print("Escolha inválida")
+            resposta = input("Deseja continuar? [S/n]")
+            if resposta == "n":
+                print("Saindo...")
+                break
     else:
         print("Usuário inválido")
