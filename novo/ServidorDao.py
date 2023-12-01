@@ -8,7 +8,7 @@ conexao.conexaoMySql()
 cursor = conexao.conexao.cursor()
 
 
-def autenticarSerrvidor(codigo):
+def autenticarServidor(codigo):
     cursor.execute(
         "SELECT id_servidor, codigo FROM tb_servidor WHERE codigo = %s", (codigo)
     )
