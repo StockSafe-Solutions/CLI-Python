@@ -1,7 +1,6 @@
 import FuncionarioDao
 import ServidorDao
 import Coleta
-import Captura
 
 CodigoServidor = ""
 idServer = ""
@@ -29,15 +28,18 @@ def exibirMenu():
 
 def exibirDados(idServer):
     Coleta.getPacotesEnviados(idServer)
-    # Coleta.getPorcentagemUsoCpu(idServer)
-    # Coleta.getPorcentagemUsoRam(idServer)
-
-    # Coleta.getTaxaDeTransferencia(idServer)
+    Coleta.getPorcentagemUsoCpu(idServer)
+    Coleta.getPorcentagemUsoRam(idServer)
+    Coleta.getTaxaDeTransferencia(idServer)
 
 
 def listarProcessos():
     Coleta.getProcessos()
 
+def dadosRam(idServer):
+    #Coleta.getPorcentagemUsoRam(idServer)
+    Coleta.getDisponivelRam(idServer)
+    Coleta.getPorcentagemUsoRam(idServer)
 
 while isLogado is False:
     print("Autenticar máquina")
@@ -62,7 +64,13 @@ while isLogado is False:
 
         if int(escolha) == 1:
             exibirDados(idServer)
+        elif int(escolha) == 2:
+            listarProcessos()
+        elif int(escolha) == 3:
+            dadosRam(idServer) 
+        elif int(escolha) == 4:
+            print("Saindo")
         else:
-            print(456)
+            print("Escolha inválida")
     else:
         print("Usuário inválido")

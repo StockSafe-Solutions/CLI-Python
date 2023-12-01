@@ -13,7 +13,8 @@ def inserirRegistros(idServer, categoria, valor):
     print("Dados do insert: ", idServer, categoria, valor)
     # Convert string value to float
     cursor.execute(
-        "INSERT INTO tb_registro VALUES (null, %d, %d, NOW(), %d);",
+        "INSERT INTO tb_registro VALUES (null, %s, %s, NOW(), %s);",
         (idServer, categoria, valor),
     )
+    conexao.conexao.commit()
     print("Registro inserido: ")

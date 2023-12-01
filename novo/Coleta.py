@@ -26,8 +26,8 @@ def getPorcentagemUsoCpu(idServer):
     per = ps.cpu_percent(interval=2)
     if int(per) == 0:
         per = ps.cpu_percent(interval=2)
-        Captura.inserirRegistros(idServer, 2, per)
     else:
+        Captura.inserirRegistros(idServer, 2, per)
         print("Porcentagem de CPU: ", per)
         return per
 
@@ -47,7 +47,7 @@ def getUsoTotal(idServer):
 
 
 def getDisponivelRam(idServer):
-    mem = ps.virtual_memory()[1]
+    mem = conversaoMb(ps.virtual_memory()[1])
     print("Memória disponivel RAM: ", mem)
     Captura.inserirRegistros(idServer, 6, mem)
     return mem
