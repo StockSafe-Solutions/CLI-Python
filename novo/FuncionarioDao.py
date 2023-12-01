@@ -14,6 +14,7 @@ def listar():
     # Imprima os resultados
     for row in results:
         print(row)
+    return results
 
 
 def getFuncionarioPorLogin(email, senha):
@@ -25,5 +26,5 @@ def getFuncionarioPorLogin(email, senha):
     for row in results:
         print(row)
 
+    return results
 
-getFuncionarioPorLogin("gabriel@b3.com", "urubu100")

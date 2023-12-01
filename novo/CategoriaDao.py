@@ -2,7 +2,7 @@ import Conexao as conexao
 
 conexao = conexao.ConexaoBancoDeDados(
     host="localhost", user="aluno", password="sptech", port=3306, database="StockSafe"
-)\
+)
 
 conexao.conexaoMySql()
 cursor = conexao.conexao.cursor()
