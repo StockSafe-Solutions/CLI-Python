@@ -12,7 +12,6 @@ servidor = False
 listaFuncionario = []
 resposta = ""
 
-
 def exibirMenu():
     print(
         """
@@ -26,7 +25,6 @@ def exibirMenu():
             +--------------------------------------+
                 """
     )
-
 
 def exibirDados(idServer):
     Coleta.getPacotesEnviados(idServer)

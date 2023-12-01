@@ -7,11 +7,8 @@ conexao = conexao.ConexaoBancoDeDados(
 conexao.conexaoMySql()
 cursor = conexao.conexao.cursor()
 
-
 def inserirRegistros(idServer, categoria, valor):
     valor = int(valor)
-    print("Dados do insert: ", idServer, categoria, valor)
-    # Convert string value to float
     cursor.execute(
         "INSERT INTO tb_registro VALUES (null, %s, %s, NOW(), %s);",
         (idServer, categoria, valor),
