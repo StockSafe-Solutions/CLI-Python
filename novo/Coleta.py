@@ -47,7 +47,7 @@ def getUsoTotal(idServer):
 
 
 def getDisponivelRam(idServer):
-    mem = conversaoMb(ps.virtual_memory()[1])
+    mem = round(conversaoMb(ps.virtual_memory()[0]))
     print("Memória disponivel RAM: ", mem)
     Captura.inserirRegistros(idServer, 6, mem)
     return mem

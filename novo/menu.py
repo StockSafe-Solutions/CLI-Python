@@ -36,7 +36,7 @@ def listarProcessos():
     Coleta.getProcessos()
 
 def dadosRam(idServer):
-    #Coleta.getPorcentagemUsoRam(idServer)
+    Coleta.getPorcentagemUsoRam(idServer)
     Coleta.getDisponivelRam(idServer)
     Coleta.getPorcentagemUsoRam(idServer)
 
@@ -73,7 +73,7 @@ while isLogado is False:
                 break
             else:
                 print("Escolha inválida")
-            resposta = input("Deseja continuar? [S/n]")
+            resposta = input("Deseja selecionar outra opção? [S/n]")
             if resposta == "n":
                 print("Saindo...")
                 break

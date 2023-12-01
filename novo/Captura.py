@@ -14,4 +14,4 @@ def inserirRegistros(idServer, categoria, valor):
         (idServer, categoria, valor),
     )
     conexao.conexao.commit()
-    print("Registro inserido: ")
+
