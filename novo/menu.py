@@ -1,8 +1,10 @@
 import FuncionarioDao
 import ServidorDao
 import Coleta
+import Captura
 
 CodigoServidor = ""
+idServer = ""
 Email = ""
 senha = ""
 isLogado = False
@@ -18,12 +20,23 @@ def exibirMenu():
             +--------------------------------------+
             | 1) Verificar Dados                   |
             | 2) Listar Processos                  |
-            | 3) Mudar configurações de exibição   |
-            | 4) Mostrar dados da RAM              |
+            | 3) Mostrar dados da RAM              |
             | 0) Sair                              |
             +--------------------------------------+
                 """
     )
+
+
+def exibirDados(idServer):
+    Coleta.getPacotesEnviados(idServer)
+    # Coleta.getPorcentagemUsoCpu(idServer)
+    # Coleta.getPorcentagemUsoRam(idServer)
+
+    # Coleta.getTaxaDeTransferencia(idServer)
+
+
+def listarProcessos():
+    Coleta.getProcessos()
 
 
 while isLogado is False:
@@ -31,10 +44,11 @@ while isLogado is False:
     while servidor is False:
         CodigoServidor = input("Digite o código: ")
         cod = ServidorDao.autenticarServidor(CodigoServidor)
+        idServer = cod[0][0]
         if len(cod) > 0:
-          servidor = True
+            servidor = True
         else:
-          print("Código inválido")
+            print("Código inválido")
     print("Faça seu login")
     Email = input("Digite seu email: ")
     senha = input("Digite sua senha: ")
@@ -47,7 +61,7 @@ while isLogado is False:
         print(escolha)
 
         if int(escolha) == 1:
-            print(123)
+            exibirDados(idServer)
         else:
             print(456)
     else:
