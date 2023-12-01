@@ -73,7 +73,7 @@ while isLogado is False:
                 break
             else:
                 print("Escolha inválida")
-            resposta = input("Deseja selecionar outra opção? [S/n]")
+            resposta = input("Deseja voltar ao menu? [S/n]")
             if resposta == "n":
                 print("Saindo...")
                 break
