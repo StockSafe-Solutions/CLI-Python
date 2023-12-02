@@ -6,6 +6,10 @@ def conversaoMb(numero):
     return numero / 131072
 
 
+def conversaoGB(numero):
+    return numero * pow(10, -9)
+
+
 def getPacotesEnviados(idServer):
     pacotesEnviados = ps.net_io_counters(pernic=False, nowrap=True)[2]
     print("Pacotes enviados: ", pacotesEnviados)
@@ -39,15 +43,15 @@ def getPorcentagemUsoRam(idServer):
     return mem
 
 
-def getUsoTotal(idServer):
-    mem = ps.virtual_memory()[0]
+def getTotalRam(idServer):
+    mem = round(conversaoGB(ps.virtual_memory()[0]))
     Captura.inserirRegistros(idServer, 5, mem)
     print("Uso total da RAM: ", mem)
     return mem
 
 
 def getDisponivelRam(idServer):
-    mem = round(conversaoMb(ps.virtual_memory()[0]))
+    mem = round(conversaoGB(ps.virtual_memory()[1]))
     print("Memória disponivel RAM: ", mem)
     Captura.inserirRegistros(idServer, 6, mem)
     return mem

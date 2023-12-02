@@ -38,7 +38,7 @@ def listarProcessos():
 def dadosRam(idServer):
     Coleta.getPorcentagemUsoRam(idServer)
     Coleta.getDisponivelRam(idServer)
-    Coleta.getPorcentagemUsoRam(idServer)
+    Coleta.getTotalRam(idServer)
 
 while isLogado is False:
     print("Autenticar máquina")
