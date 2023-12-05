@@ -1,7 +1,7 @@
 import Conexao as conexao
 
 conexao = conexao.ConexaoBancoDeDados(
-    host="localhost", user="aluno", password="sptech", port=3306, database="StockSafe"
+    host="localhost", user="stockSafe", password="urubu100", port=3306, database="StockSafe"
 )
 
 conexao.conexaoMySql()
